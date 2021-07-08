@@ -7,6 +7,8 @@ https://onedrive.live.com/view.aspx?resid=7978295AF327BF76!3152&ithint=file%2cxl
 
 ## Cronograma:
 
+### Sprint 1:
+
   DailyMeetings: 
   
   Sprint Review: Miercoles 21/7
