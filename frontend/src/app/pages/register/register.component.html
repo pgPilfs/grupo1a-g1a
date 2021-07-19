@@ -1,1 +1,6 @@
-<p>register works!</p>
+Nombre: <input [formControl]="nombre" type="text" placeholder="Nombre">
+<br>
+Apellido: <input type="text" placeholder="Apellido"><br>
+Fecha de Nacimiento: <input type="date" placeholder="Fecha de nacimiento"><br>
+Pais: <input type="text" placeholder="Pais"><br>
+<button type="button" (click)="guardar()">Registrar</button>

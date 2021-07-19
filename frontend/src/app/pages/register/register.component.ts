@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +7,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  nombre = new FormControl('pancho');
 
   constructor() { }
  
@@ -14,6 +15,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  guardar(){
+    console.log(this.nombre.value);
+  }
 
   
 }
