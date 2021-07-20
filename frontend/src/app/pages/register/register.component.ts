@@ -1,13 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  nombre = new FormControl('pancho');
+  formulario = new FormGroup({
+    nombre : new FormControl('', [Validators.required]),
+    apellido : new FormControl('', [Validators.required]),
+    nacimiento : new FormControl('', [Validators.required]),
+    usuario : new FormControl('', [Validators.required]),
+    mail : new FormControl('', [Validators.required]),
+    contrasena : new FormControl('', [Validators.required]),
+  });
+  
 
   constructor() { }
  
@@ -16,7 +24,7 @@ export class RegisterComponent implements OnInit {
   }
 
   guardar(){
-    console.log(this.nombre.value);
+    
   }
 
   
