@@ -5,7 +5,7 @@
         <div class="card_register">
           <div class="card">
             <div class="card-body text-center">
-              <form [formGroup]="formulario">
+              <form [formGroup]="formulario" (submit)="registra(newName, newApellido, newFecha, newUsuario, newMail, newPass)">
                 <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
                 <div class="form-group">
                   <label> Nombre/s </label>
@@ -17,11 +17,13 @@
                     class="form-control"
                     placeholder="Nombre"
                     required
+                    #newName
                   />
                 </div>
+                
 
                 <div class="form-group">
-                  <label> Apellido </label>
+                  <label> Apellido/s </label>
                   <input
                     type="text"
                     formControlName="apellido"
@@ -30,6 +32,7 @@
                     class="form-control"
                     placeholder="Apellido"
                     required
+                    #newApellido
                   />
                 </div>
 
@@ -43,6 +46,7 @@
                       class="form-control"
                       placeholder="Fecha de nacimiento"
                       required
+                      #newFecha
                     />
                   </div>
 
@@ -56,6 +60,7 @@
                     class="form-control"
                     placeholder="Usuario"
                     required
+                    #newUsuario
                   />
                 </div>
 
@@ -69,6 +74,7 @@
                       class="form-control"
                       placeholder="Email"
                       required
+                      #newMail
                     />
                   </div>
 
@@ -82,6 +88,7 @@
                       class="form-control"
                       placeholder="Contraseña"
                       required
+                      #newPass
                     />
                   </div>
 

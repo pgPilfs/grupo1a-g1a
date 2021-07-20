@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+
+
 
 @Component({
   selector: 'app-register',
@@ -17,14 +20,28 @@ export class RegisterComponent implements OnInit {
   });
   
 
-  constructor() { }
+  constructor(
+    public data: AuthService
+  ) { }
  
 
   ngOnInit(): void {
   }
 
-  guardar(){
-    
+  get nombre(){
+    return this.formulario.get('nombre');
+  }
+
+  registra(newName: HTMLInputElement, newApellido: any, newFecha: any, newUsuario: any, newMail:any, newPass:any){
+    this.data.addUser({
+      nombre: newName.value,
+      apellido: newApellido,
+      nacimiento: newFecha,
+      usuario: newUsuario,
+      email: newMail,
+      contrasena: newPass
+    });
+    return false;
   }
 
   

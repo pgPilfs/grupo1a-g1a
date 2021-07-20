@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from "./layout/layout.module";
 import { PagesModule } from './pages/pages.module';
+import { DataApiService } from './services/data-api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,9 @@ import { PagesModule } from './pages/pages.module';
     BrowserModule,
     LayoutModule,
     PagesModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
