@@ -1,12 +1,10 @@
-#form{
-    text-align: center;
+.form-group{
+    margin: 5%;
 }
+.form-control.login-user{
+    border: 0px solid #fff !important;
 
-a {
-    text-decoration: none;
-    color: #1ab188;
-    transition: 0.5s ease;
-  }
+}
 
 
 /**a {

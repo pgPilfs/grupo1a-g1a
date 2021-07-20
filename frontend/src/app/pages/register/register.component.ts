@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
     apellido : new FormControl('', [Validators.required]),
     nacimiento : new FormControl('', [Validators.required]),
     usuario : new FormControl('', [Validators.required]),
-    mail : new FormControl('', [Validators.required]),
+    mail : new FormControl('', [Validators.required, Validators.email]),
     contrasena : new FormControl('', [Validators.required]),
   });
   
