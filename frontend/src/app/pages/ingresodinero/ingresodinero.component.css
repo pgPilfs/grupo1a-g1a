@@ -1,0 +1,17 @@
+.pagofacil {
+  height: 45%;
+  width: 45%;
+  margin-top: 10px;
+}
+
+
+
+a {
+  border-radius: 11px;
+  box-shadow: 0 6px #cccccc;
+  padding: 20px 45px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 26px/1 "Open Sans", sans-serif;
+  text-align: center;
+}
