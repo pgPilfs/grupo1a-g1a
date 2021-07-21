@@ -1,0 +1,23 @@
+.btn-ingresar{
+    background-color: #beaee2;
+    border-color: #beaee2;
+    border-radius: 4em;
+}
+.btn-ingresar:hover{
+    background-color: #746596;
+    border-radius: 4em;
+}
+
+.btn-pass{
+    color: #6d5f8d;
+    outline-style: none;
+}
+
+.btn-pass:hover{
+    color: #b19edd;
+    outline-style: none;
+}
+
+h1{
+    color: #6d5f8d;
+}
