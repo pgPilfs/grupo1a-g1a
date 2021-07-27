@@ -1,0 +1,35 @@
+.pagofacil {
+  height: 45%;
+  width: 45%;
+  margin-top: 10px;
+}
+a {
+  border-radius: 11px;
+  box-shadow: 0 6px #cccccc;
+  padding: 20px 45px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 26px/1 "Open Sans", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px;
+}
+
+a:hover{
+  box-shadow:  #fff;
+  background-color: rgb(228, 245, 155);
+}
+
+.boton{
+  margin: 10px;
+}
+
+.monto{
+  margin: 20%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
