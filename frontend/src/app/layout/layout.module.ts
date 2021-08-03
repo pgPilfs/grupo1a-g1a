@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SaldoDisponibleComponent } from './content/saldo-disponible/saldo-disponible.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SaldoDisponibleComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SaldoDisponibleComponent,
   ]
 })
 export class LayoutModule { }
