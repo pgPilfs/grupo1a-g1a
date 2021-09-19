@@ -17,13 +17,17 @@ export class RegisterComponent implements OnInit {
     usuario : new FormControl('', [Validators.required]),
     mail : new FormControl('', [Validators.required, Validators.email]),
     contrasena : new FormControl('', [Validators.required]),
+    telefono : new FormControl('', [Validators.required]),
+    pais : new FormControl('', [Validators.required]),
+    provincia : new FormControl('', [Validators.required]),
+    ciudad : new FormControl('', [Validators.required])
   });
-  
+
 
   constructor(
     public data: AuthService
   ) { }
- 
+
 
   ngOnInit(): void {
   }
@@ -44,7 +48,7 @@ export class RegisterComponent implements OnInit {
     return false;
   }
 
-  
+
 }
 
 
