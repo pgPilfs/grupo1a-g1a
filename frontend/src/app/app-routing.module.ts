@@ -1,3 +1,4 @@
+import { MovimientosComponent } from './pages/movimientos/movimientos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgetPassComponent } from './pages/forget-pass/forget-pass.component';
@@ -15,7 +16,11 @@ const routes: Routes = [
   { path: 'forget-pass', component: ForgetPassComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ingdinero', component: IngresodineroComponent },
+
   { path: 'logout', component: LogoutComponent },
+
+  { path: 'movimiento', component: MovimientosComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 
