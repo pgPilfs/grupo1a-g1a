@@ -35,7 +35,7 @@ namespace MVCWebApi.Controllers
            }
 
            // PUT: api/Persona/5
-           public void Put(int id, [FromBody]Persona value)
+           public void Put(int id, [FromBody]Usuarios value)
            {
            }
 

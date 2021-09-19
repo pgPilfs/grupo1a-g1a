@@ -16,7 +16,7 @@ namespace MVCWebApi.Controllers
        /* public IEnumerable<Cuenta> Get(int id)
         {
             GestorCuenta gCuenta = new GestorCuenta();
-            return gCuenta.ObtenterCuenta(id);
+            return gCuenta.ObtenterCuentas(id);
         }*/
 
         // GET: api/Cuenta/5

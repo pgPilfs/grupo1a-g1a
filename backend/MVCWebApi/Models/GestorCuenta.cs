@@ -31,10 +31,10 @@ namespace MVCWebApi.Models
 
                 if (dr.Read())
                 {
-                    string cvu = dr.GetString(1).Trim();
-                    double saldo = dr.GetDouble(2);
-                    int id_usuario = dr.GetInt32(3);
-                    int estado = dr.GetInt32(4);
+                    string cvu = dr.GetString(6).Trim();
+                    decimal saldo = dr.GetDecimal(3);
+                    int id_usuario = dr.GetInt32(1);
+                    int estado = dr.GetInt32(5);
 
                     cuenta = new Cuenta(id, cvu, saldo, id_usuario, estado);
 
@@ -47,11 +47,11 @@ namespace MVCWebApi.Models
 
                     while (dr.Read())
                     {
-                        DateTime fechahora = dr.GetDateTime(1);
-                        double monto = dr.GetDouble(2);
-                        string cvuOrigen = dr.GetString(3).Trim(); 
-                        string cvuDestino = dr.GetString(4).Trim();
-                        string tipoMovimiento = dr.GetString(7).Trim();
+                        DateTime fechahora = dr.GetDateTime(3);
+                        decimal monto = dr.GetDecimal(4);
+                        string cvuOrigen = dr.GetString(7).Trim(); 
+                        string cvuDestino = dr.GetString(8).Trim();
+                        string tipoMovimiento = dr.GetString(9).Trim();
 
                         movimiento = new Movimiento(fechahora, monto, cvuOrigen, cvuDestino, id, tipoMovimiento);
                         cuenta.movimientos.Add(movimiento);

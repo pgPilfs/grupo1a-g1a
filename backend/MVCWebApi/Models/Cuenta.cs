@@ -9,12 +9,12 @@ namespace MVCWebApi.Models
     {
         public int id_cuenta;
         private string cvu;
-        private double saldo;
+        private decimal saldo;
         private int id_usuario;
         private int id_estado;
         public List<Movimiento> movimientos = new List<Movimiento>();
 
-        public Cuenta(int id, string Cvu, double Monto, int id_user, int estado)
+        public Cuenta(int id, string Cvu, decimal Monto, int id_user, int estado)
         {
             id_cuenta = id;
             cvu = Cvu;
@@ -35,7 +35,7 @@ namespace MVCWebApi.Models
     {
         public int id_movimiento;
         public DateTime fechaHora;
-        public double monto;
+        public decimal monto;
         public int id_cuenta_recibe;
         public int id_cuenta_principal;
         public bool is_ingreso;
@@ -45,7 +45,7 @@ namespace MVCWebApi.Models
         public string tipoMovimiento;
 
 
-        public Movimiento(DateTime FechaHora, double Monto, string CvuDestino, string CvuOrigen, int Id_cuenta_principal, string TipoMovimiento)
+        public Movimiento(DateTime FechaHora, decimal Monto, string CvuDestino, string CvuOrigen, int Id_cuenta_principal, string TipoMovimiento)
         {
 
             fechaHora = FechaHora;

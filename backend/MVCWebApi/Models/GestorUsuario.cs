@@ -100,7 +100,7 @@ namespace MVCWebApi.Models
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "obtener_usuarios";
+                comm.CommandText = "obteniendo_usuarios";
                 comm.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader dr = comm.ExecuteReader();
