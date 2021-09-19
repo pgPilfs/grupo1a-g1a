@@ -1,3 +1,4 @@
+import { CuentaService } from './services/cuenta.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,7 +20,7 @@ import { AuthService } from './services/auth.service';
     PagesModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, CuentaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

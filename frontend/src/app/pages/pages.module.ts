@@ -8,6 +8,7 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IngresodineroComponent } from './ingresodinero/ingresodinero.component';
+import { MovimientosComponent } from './movimientos/movimientos.component';
 
 
 
@@ -20,6 +21,7 @@ import { IngresodineroComponent } from './ingresodinero/ingresodinero.component'
     ForgetPassComponent,
     RegisterComponent,
     IngresodineroComponent,
+    MovimientosComponent,
   ],
   imports: [
     CommonModule,
