@@ -1,0 +1,173 @@
+<section id="register" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
+        <div class="card_register">
+          <div class="card">
+            <div class="card-body text-center">
+              <form [formGroup]="formulario" (submit)="registra(newName, newApellido, newFecha, newUsuario, newMail, newPass)">
+                <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+                <div class="form-group">
+                  <label> Nombre/s </label>
+                  <input
+                    type="text"
+                    formControlName="nombre"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    placeholder="Nombre"
+                    required
+                    #newName
+                  />
+                </div>
+
+
+                <div class="form-group">
+                  <label> Apellido/s </label>
+                  <input
+                    type="text"
+                    formControlName="apellido"
+                    id="lastname"
+                    name="lastname"
+                    class="form-control"
+                    placeholder="Apellido"
+                    required
+                    #newApellido
+                  />
+                </div>
+
+                <div class="form-group">
+                    <label> Fecha de nacimiento </label>
+                    <input
+                      type="date"
+                      formControlName="nacimiento"
+                      id="nacimiento"
+                      name="nacimiento"
+                      class="form-control"
+                      placeholder="Fecha de nacimiento"
+                      required
+                      #newFecha
+                    />
+                  </div>
+
+                <div class="form-group">
+                  <label>Usuario</label>
+                  <input
+                    type="text"
+                    formControlName="usuario"
+                    id="user"
+                    name="user"
+                    class="form-control"
+                    placeholder="Usuario"
+                    required
+                    #newUsuario
+                  />
+                </div>
+
+                <div class="form-group">
+                    <label> Email </label>
+                    <input
+                      type="email"
+                      formControlName="mail"
+                      id="mail"
+                      name="mail"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      #newMail
+                    />
+                  </div>
+
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input
+                      type="password"
+                      formControlName="contrasena"
+                      id="contra"
+                      name="contraseña"
+                      class="form-control"
+                      placeholder="Contraseña"
+                      required
+                      #newPass
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label> Telefono </label>
+                    <input
+                      type="text"
+                      formControlName="telefono"
+                      id="telefono"
+                      name="telefono"
+                      class="form-control"
+                      placeholder="Telefono"
+                      required
+                      #newTelefono
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Pais</label>
+                    <input
+                      type="text"
+                      formControlName="pais"
+                      id="pais"
+                      name="pais"
+                      class="form-control"
+                      placeholder="Pais"
+                      required
+                      #newPais
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Provincia</label>
+                    <input
+                      type="text"
+                      formControlName="provincia"
+                      id="provincia"
+                      name="provincia"
+                      class="form-control"
+                      placeholder="provincia"
+                      required
+                      #newProvincia
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Ciudad</label>
+                    <input
+                      type="text"
+                      formControlName="ciudad"
+                      id="ciudad"
+                      name="ciudad"
+                      class="form-control"
+                      placeholder="ciudad"
+                      required
+                      #newCiudad
+                    />
+                  </div>
+
+                  <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!formulario.valid">
+                      Registrarse
+                  </button>
+                  <div class="form-group">
+                      <a routerLink="../login" class="form-control login-user">¿Ya tienes una cuenta?</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
