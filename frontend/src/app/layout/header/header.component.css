@@ -3,7 +3,7 @@
     background-color:white;
 }
 .navbar{
-    background-color:white;
+    background-color:#02166D;
 }
 
 .btn-inicio{
@@ -45,13 +45,13 @@
 .nav-link{
     color: #beaee2;
     font-size: 18px;
-     
+
 }
 
 .nav-link:hover{
     color: #8676aa;
     font-size: 18px;
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 .header_change{

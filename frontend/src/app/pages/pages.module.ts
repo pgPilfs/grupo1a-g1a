@@ -1,3 +1,4 @@
+import { SaldoDisponibleComponent } from './saldo-disponible/saldo-disponible.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -16,6 +17,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { LogoutComponent } from './logout/logout.component';
 
 import { MovimientosComponent } from './movimientos/movimientos.component';
+import { UserlogedComponent } from './userloged/userloged.component';
 
 
 
@@ -32,14 +34,15 @@ import { MovimientosComponent } from './movimientos/movimientos.component';
     IngresodineroComponent,
 
     LogoutComponent,
-
     MovimientosComponent,
+    SaldoDisponibleComponent,
+    UserlogedComponent,
 
   ],
   imports: [
     CommonModule,
 
-    AppRoutingModule
+    AppRoutingModule,
 
     ReactiveFormsModule,
     RouterModule,

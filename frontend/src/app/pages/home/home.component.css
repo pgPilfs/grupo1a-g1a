@@ -1,0 +1,15 @@
+
+.contenedor{
+  display:flex;
+  flex-direction: row;
+
+  }
+  .elemento{
+
+  width:55%;
+  }
+
+  .nueva{
+    display: grid;
+    grid-template-rows: auto;
+  }
