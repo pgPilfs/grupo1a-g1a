@@ -12,4 +12,9 @@ export class CuentaService {
   {
     return this.http.get<any>(this.url+"/"+id.toString());
   }
+
+  ObtenerSaldo(id:number)
+  {
+    return this.http.get<any>(this.url+"/"+id.toString());
+  }
 }

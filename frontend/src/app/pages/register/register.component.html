@@ -5,15 +5,16 @@
         <div class="card_register">
           <div class="card">
             <div class="card-body text-center">
-              <form [formGroup]="formulario" (submit)="registra(newName, newApellido, newFecha, newUsuario, newMail, newPass)">
+              <form [formGroup]="formulario" (ngSubmit)="onEnviar($event, usuario)">
                 <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
                 <div class="form-group">
                   <label> Nombre/s </label>
                   <input
                     type="text"
                     formControlName="nombre"
-                    id="name"
-                    name="name"
+                    [(ngModel)]="usuario.nombre" [class.border-danger]="NombreValid"
+                    id="nombre"
+                    name="nombre"
                     class="form-control"
                     placeholder="Nombre"
                     required
@@ -27,9 +28,11 @@
                   <input
                     type="text"
                     formControlName="apellido"
-                    id="lastname"
-                    name="lastname"
+
+                    id="apellido"
+                    name="apellido"
                     class="form-control"
+                    [(ngModel)]="usuario.contrasena" [class.border-danger]="ContrasenaValid"
                     placeholder="Apellido"
                     required
                     #newApellido
@@ -40,9 +43,10 @@
                     <label> Fecha de nacimiento </label>
                     <input
                       type="date"
-                      formControlName="nacimiento"
-                      id="nacimiento"
-                      name="nacimiento"
+                      formControlName="fecha_nacimiento"
+                      [(ngModel)]="usuario.fecha_nacimiento" [class.border-danger]="FechaNacimientoValid"
+                      id="fecha_nacimiento"
+                      name="fecha_nacimiento"
                       class="form-control"
                       placeholder="Fecha de nacimiento"
                       required
@@ -54,9 +58,10 @@
                   <label>Usuario</label>
                   <input
                     type="text"
-                    formControlName="usuario"
-                    id="user"
-                    name="user"
+                    formControlName="username"
+                    [(ngModel)]="usuario.username" [class.border-danger]="UsernameValid"
+                    id="username"
+                    name="username"
                     class="form-control"
                     placeholder="Usuario"
                     required
@@ -68,8 +73,9 @@
                     <label> Email </label>
                     <input
                       type="email"
-                      formControlName="mail"
-                      id="mail"
+                      formControlName="email"
+                      [(ngModel)]="usuario.email" [class.border-danger]="MailValid"
+                      id="email"
                       name="mail"
                       class="form-control"
                       placeholder="Email"
@@ -83,8 +89,9 @@
                     <input
                       type="password"
                       formControlName="contrasena"
-                      id="contra"
-                      name="contraseña"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="ContrasenaValid"
+                      id="contrasena"
+                      name="contrasena"
                       class="form-control"
                       placeholder="Contraseña"
                       required
@@ -148,7 +155,7 @@
                     />
                   </div>
 
-                  <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!formulario.valid">
+                  <button type="submit" class="btn btn-lg btn-primary btn-block"  [disabled]="!formulario.valid">
                       Registrarse
                   </button>
                   <div class="form-group">
@@ -162,6 +169,7 @@
     </div>
   </div>
 </section>
+
 
 
 

@@ -21,7 +21,7 @@ export class MovimientosComponent implements OnInit {
     this.cuentaService.ObtenerUltimosMovimientos(2).subscribe(
       data=> {
         console.log(data);
-        this.movimientos=data['Movimientos'];
+        this.movimientos=data['movimientos'];
       }
     );
 

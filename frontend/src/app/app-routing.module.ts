@@ -1,3 +1,4 @@
+import { SaldoDisponibleComponent } from './layout/content/saldo-disponible/saldo-disponible.component';
 import { MovimientosComponent } from './pages/movimientos/movimientos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
 
   { path: 'movimiento', component: MovimientosComponent },
+  { path: 'saldo', component: SaldoDisponibleComponent },
+
 
   { path: '**', component: NotFoundComponent },
 ];
