@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
+
+import { AppRoutingModule } from '../app-routing.module';
+
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IngresodineroComponent } from './ingresodinero/ingresodinero.component';
@@ -13,6 +16,7 @@ import { IngresodineroComponent } from './ingresodinero/ingresodinero.component'
 import { LogoutComponent } from './logout/logout.component';
 
 import { MovimientosComponent } from './movimientos/movimientos.component';
+
 
 
 
@@ -34,9 +38,13 @@ import { MovimientosComponent } from './movimientos/movimientos.component';
   ],
   imports: [
     CommonModule,
+
+    AppRoutingModule
+
     ReactiveFormsModule,
     RouterModule,
     LayoutModule
+
   ],
   exports: [
     HomeComponent
