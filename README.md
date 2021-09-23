@@ -15,4 +15,10 @@ https://onedrive.live.com/view.aspx?resid=7978295AF327BF76!3152&ithint=file%2cxl
   
   Retrospective: Lunes 26/7
 
+
+### Sprint 2:
+https://drive.google.com/file/d/1XYvOgEPJbrXdLZFfv31ptsxpc2xEHmxp/view?usp=sharing
+
+
 grupo1a-g1a created by GitHub Classroom
+
