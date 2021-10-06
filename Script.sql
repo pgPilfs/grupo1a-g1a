@@ -181,3 +181,92 @@ END
 Go
 
 EXEC crear_movimiento 1, 1, 250000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--TIPOS MOVIMIENTOS
+--1: Ingreso dinero
+--2: Egreso dinero
+--3: Transferencia
+
+
+--el ingreso de dinero en la cuenta
+Go
+CREATE PROCEDURE ingresar_dinero (@id_c_principal INT, @monto money) AS
+BEGIN
+INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+VALUES (@id_c_principal, @id_c_principal, @monto, 6, 1);
+UPDATE Cuentas
+SET monto = monto+@monto
+WHERE id_cuenta = @id_c_principal;
+END
+Go
+EXEC ingresar_dinero 1, 250000, 1;
+
+--retiro de dinero
+Go
+CREATE PROCEDURE retirar_dinero (@id_c_principal INT, @monto money) AS
+BEGIN
+SELECT CASE WHEN monto-@monto >= 0 THEN
+					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+					VALUES (@id_c_principal, @id_c_principal, @monto, 6, 2);
+					UPDATE Cuentas
+					SET monto = monto-@monto
+					WHERE id_cuenta = @id_c_principal;)
+			WHEN monto-@monto < 0 THEN
+					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+					VALUES (@id_c_principal, @id_c_principal, @monto, 9, 2);)
+			END Retiro
+FROM Cuentas
+END
+Go
+EXEC retirar_dinero 1, 250000, 2;
+
+--transferencias
+Go
+CREATE PROCEDURE transferir_dinero (@id_c_principal INT, @id_c_recibe INT, @monto money) AS
+BEGIN
+SELECT CASE WHEN monto-@monto >= 0 THEN
+					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+					VALUES (@id_c_principal, @id_c_recibe, @monto, 6, 3);
+					UPDATE Cuentas
+					SET monto = monto-@monto
+					WHERE id_cuenta = @id_c_principal;
+					UPDATE Cuentas
+					SET monto = monto+@monto
+					WHERE id_cuenta = @id_c_recibe;)
+			WHEN monto-@monto < 0 THEN
+					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+					VALUES (@id_c_principal, @id_c_recibe, @monto, 9, 3);)
+			END Retiro
+FROM Cuentas
+WHERE id_cuenta = @id_c_principal
+END
+Go
+EXEC transferir_dinero 1, 2, 250000;
+
+
+--filtrado de ciudad por provincia
+
+SELECT * FROM Paises
+
+SELECT * FROM Provincias WHERE id_pais = @id_pais
+
+SELECT * FROM Ciudades WHERE id_provincia = @id_provincia
+
+
