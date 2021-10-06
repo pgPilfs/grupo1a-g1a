@@ -48,29 +48,6 @@ header a {
 display: flex;
 align-items: center;
 }
-.logo{
-  display: block;
-  padding: 1rem 1rem;
-}
-
-.nav ul{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.nav ul li{
-  display: inline-block;
-}
-.nav ul li a{
-  color: black;
-  display: block;
-  padding: 1rem 1rem;
-  padding-bottom: 1rem;
-  transition: all 0.4s linear;
-}
-.nav ul li a:hover{
-  color: white;
-}
 
 header .textos-header{
   display: flex;
@@ -176,38 +153,7 @@ footer{
   color : white ;
 
 }
-/*
-footer{
-  background: #414141;
-  padding: 25px 0 10px 0;
-  margin: auto;
-  overflow: hidden;
-}
-footer a{
-  text-decoration: none;
-}
-.nav_footer ul li{
-  display: inline-block;
-}
-.nav_footer ul li a{
-  color: white;
-  display: block;
-  padding: 0.5rem 0.5rem;
-  transition: all 0.4s linear;
-}
-.nav_footer ul li a:hover{
-  color: #d65600;
-}
 
-.contenedor-footer{
-  display: flex;
-  width: 90%;
-  justify-content: space-evenly;
-  margin: auto;
-  padding-bottom: 50px;
-  border-bottom: 1px solid #ccc;
-}
-*/
 
 .titulo-final{
   text-align: center;
