@@ -1,12 +1,14 @@
-.pagofacil {
-  height: 45%;
-  width: 45%;
-  margin-top: 10px;
+.image{
+  width: 100%;
+  height: 100px;
+  padding: 10px 30px 10px 30px;
 }
+
+
 a {
   border-radius: 11px;
   box-shadow: 0 6px #cccccc;
-  padding: 20px 45px;
+  /* padding: 20px 45px; */
   color: #ffffff;
   display: inline-block;
   font: normal bold 26px/1 "Open Sans", sans-serif;
@@ -25,7 +27,7 @@ a:hover{
 }
 
 .monto{
-  margin: 20%;
+  margin: 50px 0 50px 0;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
