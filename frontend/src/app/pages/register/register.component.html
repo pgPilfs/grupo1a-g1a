@@ -1,14 +1,19 @@
 <section id="register" class="mb-5">
   <div class="container">
     <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
+        <h1 class="h3 mb-3 font-weight-normal color-title">Registrarse</h1>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
         <div class="card_register">
           <div class="card">
             <div class="card-body text-center">
               <form [formGroup]="formulario" (ngSubmit)="onEnviar($event, usuario)">
-                <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+                
                 <div class="form-group">
-                  <label> Nombre/s </label>
+                  <label class="color-title"> Nombre/s </label>
                   <input
                     type="text"
                     formControlName="nombre"
@@ -29,7 +34,7 @@
 
 
                 <div class="form-group">
-                  <label> Apellido/s </label>
+                  <label class="color-title"> Apellido/s </label>
                   <input
                     type="text"
                     formControlName="apellido"
@@ -50,7 +55,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label> Fecha de nacimiento </label>
+                    <label class="color-title"> Fecha de nacimiento </label>
                     <input
                       type="date"
                       formControlName="fecha_nacimiento"
@@ -70,7 +75,7 @@
                   </div>
 
                 <div class="form-group">
-                  <label>Usuario</label>
+                  <label class="color-title">Usuario</label>
                   <input
                     type="text"
                     formControlName="username"
@@ -85,7 +90,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label> Email </label>
+                    <label class="color-title"> Email </label>
                     <input
                       type="email"
                       formControlName="email"
@@ -105,7 +110,7 @@
                   </div>
 
                 <div class="form-group">
-                    <label>Contraseña</label>
+                    <label class="color-title">Contraseña</label>
                     <input
                       type="password"
                       formControlName="contrasena"
@@ -125,7 +130,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label> Telefono </label>
+                    <label class="color-title"> Telefono </label>
                     <input
                       type="text"
                       formControlName="telefono"
@@ -139,7 +144,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Pais</label>
+                    <label class="color-title">Pais</label>
                     <input
                       type="text"
                       formControlName="pais"
@@ -153,7 +158,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Provincia</label>
+                    <label class="color-title">Provincia</label>
                     <input
                       type="text"
                       formControlName="provincia"
@@ -167,7 +172,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Ciudad</label>
+                    <label class="color-title">Ciudad</label>
                     <input
                       type="text"
                       formControlName="ciudad"
@@ -180,11 +185,11 @@
                     />
                   </div>
 
-                  <button type="submit" class="btn btn-lg btn-primary btn-block"  [disabled]="!formulario.valid">
+                  <button type="submit" class="btn btn-lg w-100 btn-registrar btn-block"  [disabled]="!formulario.valid">
                       Registrarse
                   </button>
                   <div class="form-group">
-                      <a routerLink="../login" class="form-control login-user">¿Ya tienes una cuenta?</a>
+                      <a routerLink="../login" class="form-control login-user btn-pass">¿Ya tienes una cuenta?</a>
                   </div>
               </form>
             </div>

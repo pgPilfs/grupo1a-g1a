@@ -27,8 +27,8 @@ namespace MVCWebApi.Models
                 comm.Parameters.Add(new SqlParameter("@email", usuario.email));
                 comm.Parameters.Add(new SqlParameter("@contraseña", usuario.contrasena));
                 comm.Parameters.Add(new SqlParameter("@telefono", usuario.telefono));
-                comm.Parameters.Add(new SqlParameter("@ciudad", usuario.ciudad));
-                comm.Parameters.Add(new SqlParameter("@fecha_nac", usuario.fecha_nacimiento));
+                //comm.Parameters.Add(new SqlParameter("@ciudad", usuario.ciudad));
+                comm.Parameters.Add(new SqlParameter("@fecha_nacimiento", usuario.fecha_nacimiento));
 
                 return Convert.ToInt32(comm.ExecuteScalar());
             }

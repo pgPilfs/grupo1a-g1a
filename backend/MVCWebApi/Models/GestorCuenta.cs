@@ -37,7 +37,7 @@ namespace MVCWebApi.Models
                     int estado = dr.GetInt32(5);
 
                     cuenta = new Cuenta(id, cvu, saldo, id_usuario, estado);
-
+                    
                     comm = conn.CreateCommand();
                     comm.CommandText = "listar_ultimos_movimientos";
                     comm.CommandType = CommandType.StoredProcedure;
@@ -55,7 +55,9 @@ namespace MVCWebApi.Models
 
                         movimiento = new Movimiento(fechahora, monto, cvuOrigen, cvuDestino, id, tipoMovimiento);
                         cuenta.movimientos.Add(movimiento);
+                        
                     }
+                    
                     dr.Close();
 
                 }

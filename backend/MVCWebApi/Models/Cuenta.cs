@@ -9,7 +9,7 @@ namespace MVCWebApi.Models
     {
         public int id_cuenta;
         private string cvu;
-        private decimal saldo;
+        public decimal saldo;
         private int id_usuario;
         private int id_estado;
         public List<Movimiento> movimientos = new List<Movimiento>();

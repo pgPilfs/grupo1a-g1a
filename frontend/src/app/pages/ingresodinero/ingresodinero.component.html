@@ -1,65 +1,51 @@
 <section id="carga" class="mb-5">
   <div class="container">
     <div class="row" *ngIf="lugares">
-      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
-        <div class="card">
-          <div class="card">
-            <div class="card-body text-center">
-              <h2 class="h3 mb-3 font-weight-normal">Ingresá dinero</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 com-md-12 mx-auto text-center pt-5">
+            <h2 class="h3 mb-3 font-weight-normal">Ingresá dinero</h2>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <a class="" (click)="mostrarOcultar()">
+              <img src="../../../assets/pagofacil.png" alt="Pago Facil" class="image" />
+            </a>
+          </div>
 
-              <div class="form-group">
-                <a class="" (click)="mostrarOcultar()">
-                  <img
-                    src="../../../assets/pagofacil.png"
-                    alt="Pago Facil"
-                    class="pagofacil"
-                  />
-                </a>
-              </div>
+          <div class="col-xs-12 col-sm-3">
+            <a class="" (click)="mostrarOcultar()">
+              <img src="../../../assets/rapipago.png" alt="Rapipago" class="image" />
+            </a>
+          </div>
 
-              <div class="form-group">
-                <a class="" (click)="mostrarOcultar()">
-                  <img src="../../../assets/rapipago.png" alt="Rapipago" />
-                </a>
-              </div>
+          <div class="col-xs-12 col-sm-3">
+            <a class="" (click)="mostrarOcultar()">
+              <img src="../../../assets/telerecargas.png" alt="Telerecarga" class="image" />
+            </a>
+          </div>
 
-              <div class="form-group">
-                <a class="" (click)="mostrarOcultar()">
-                  <img
-                    src="../../../assets/logo-telerecarga.jpg"
-                    alt="Telerecarga"
-                    class="tele"
-                  />
-                </a>
-              </div>
-
-              <div class="form-group">
-                <a class="" (click)="mostrarOcultar()">
-                  <img
-                    src="../../../assets/cobroexpress.png"
-                    alt="Cobro Express"
-                    class="pagos"
-                  />
-                </a>
-              </div>
-
-              <div class="form-group"></div>
-            </div>
+          <div class="col-xs-12 col-sm-3">
+            <a class="" (click)="mostrarOcultar()">
+              <img src="../../../assets/cobroexpress.png" alt="Cobro Express" class="image" />
+            </a>
           </div>
         </div>
       </div>
+
+
+      <div class="form-group"></div>
     </div>
 
-    <div *ngIf="mostrar" class=" monto text-center">
-      <h6>¿Cuanto queres ingresar?</h6>
-      <input [formControl]="monto" type="number" class="" placeholder="$0,00" /><br>
-      <button
-        type="submit"
-        class="btn btn-lg btn-primary btn-block boton"
-        [disabled]="!monto.valid"
-      >
-        Confirmar
-      </button>
-    </div>
+  </div>
+
+  <div *ngIf="mostrar" class=" monto text-center">
+    <h6>¿Cuanto queres ingresar?</h6>
+    <input [formControl]="monto" type="number" class="" placeholder="$0,00" /><br>
+    <button type="submit" class="btn btn-lg btn-primary btn-block boton" [disabled]="!monto.valid">
+      Confirmar
+    </button>
   </div>
 </section>
