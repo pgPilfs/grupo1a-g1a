@@ -3,17 +3,18 @@
     background-color:white;
 }
 .navbar{
-    background-color:#02166D;
+    background-color:#4174f4;
 }
 
 .btn-inicio{
-    background-color: #beaee2;
+    background-color: #041c8a;
     border-radius: 4em;
     padding: 8px 25px;
+    margin: 0 10px 0 10px;
 }
 
 .btn-inicio:hover{
-    background-color: #746596;
+    background-color: #4174f4;
     color: white;
     border-radius: 4em;
     padding: 8px 25px;
@@ -21,37 +22,34 @@
 
 .btn-registro{
     background-color: white;
-    color: #beaee2;
-    border-color: #beaee2;
+    color: #4174f4;
+    border-color: #4174f4;
     border-radius: 4em;
     padding: 8px 25px;
+    margin: 0 10px 0 10px;
 }
 
 .btn-registro:hover{
-    background-color: #E6DFF7;
+    background-color: #041c8a;
     color: white;
-    border-color: #beaee2;
+    border-color: #041c8a;
     border-radius: 4em;
     padding: 8px 25px;
 }
 
-.titulo-logo{
-    color: #beaee2;
-}
-.titulo-logo:hover{
-    color: #8676aa;
+.nav-item{
+    margin: 0 15px 0 15px;
 }
 
 .nav-link{
-    color: #beaee2;
+    color: #fff;
     font-size: 18px;
 
 }
 
 .nav-link:hover{
-    color: #8676aa;
+    color: #041c8a;
     font-size: 18px;
-    text-decoration: underline;
 }
 
 .header_change{

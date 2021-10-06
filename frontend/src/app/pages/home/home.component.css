@@ -1,15 +1,5 @@
-
-.contenedor{
-  display:flex;
-  flex-direction: row;
-
-  }
-  .elemento{
-
-  width:55%;
-  }
-
-  .nueva{
-    display: grid;
-    grid-template-rows: auto;
-  }
+.subtitle{
+  color: #4174f4;
+  font-weight: bold;
+  text-transform: uppercase;
+}
