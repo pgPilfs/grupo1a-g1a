@@ -10,7 +10,7 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { RegisterComponent } from './register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IngresodineroComponent } from './ingresodinero/ingresodinero.component';
 
 import { LayoutModule } from '../layout/layout.module';
@@ -32,7 +32,6 @@ import { UserlogedComponent } from './userloged/userloged.component';
     ForgetPassComponent,
     RegisterComponent,
     IngresodineroComponent,
-
     LogoutComponent,
     MovimientosComponent,
     SaldoDisponibleComponent,
@@ -41,16 +40,16 @@ import { UserlogedComponent } from './userloged/userloged.component';
   ],
   imports: [
     CommonModule,
-
     AppRoutingModule,
-
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     LayoutModule
 
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ]
 })
 export class PagesModule { }

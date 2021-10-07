@@ -31,5 +31,11 @@ export class Usuario
   //A modo de ejemplo se deja así pero lo ideal es crear propiedades para acceder a los atributos.
 }
 
+export class  LoginRequest {
+  UserName:string="";
+  Password:string="";
+  Token: string = "";
+}
+
 
 //SALDO Y ULTIMOS MOVIMIENTOS
