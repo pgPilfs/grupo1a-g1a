@@ -1,0 +1,48 @@
+<header [class.header_change]="header_variable">
+  <nav class="navbar navbar-expand-lg p-3" aria-label="Navegación principal">
+    <div class="container-xl">
+      <a class="navbar-brand" routerLink="/home" aria-label="PIL Money">
+        <img src="../../../assets/logo-3.png" alt="" width="100%" height="60">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">¿Quiénes somos?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../../ingdinero">Ingresar Dinero</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Contacto</a>
+          </li>
+
+        </ul>
+
+        <div class="text-end">
+          <a routerLink="/login" class="btn-inicio btn btn-outline-light me-2">
+            INICIA SESIÓN
+          </a>
+
+          <a routerLink="/register" class="btn-registro btn btn-outline-light">REGÍSTRATE GRATIS</a>
+
+          <a routerLink="/logout" class="btn btn-danger me-2">Cerrar Sesión</a>
+
+
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

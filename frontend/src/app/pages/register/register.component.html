@@ -1,0 +1,211 @@
+<section id="register" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto text-center pt-5">
+        <h1 class="h3 mb-3 font-weight-normal color-title">Registrarse</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 com-md-4 mx-auto">
+        <div class="card_register">
+          <div class="card">
+            <div class="card-body text-center">
+              <form [formGroup]="formulario" (ngSubmit)="onEnviar($event, usuario)">
+                
+                <div class="form-group">
+                  <label class="color-title"> Nombre/s </label>
+                  <input
+                    type="text"
+                    formControlName="nombre"
+                    [(ngModel)]="usuario.nombre" [class.border-danger]="NombreValid"
+                    id="nombre"
+                    name="nombre"
+                    class="form-control"
+                    placeholder="Nombre"
+                    required
+                    #newName
+                  />
+                  <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                    <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                      El nombre es requerido.
+                    </p>
+                </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="color-title"> Apellido/s </label>
+                  <input
+                    type="text"
+                    formControlName="apellido"
+
+                    id="apellido"
+                    name="apellido"
+                    class="form-control"
+                    [(ngModel)]="usuario.contrasena" [class.border-danger]="ContrasenaValid"
+                    placeholder="Apellido"
+                    required
+                    #newApellido
+                  />
+                  <div *ngIf="Apellido?.errors  && Apellido?.touched">
+                    <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                      El apellido es requerido.
+                    </p>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="color-title"> Fecha de nacimiento </label>
+                    <input
+                      type="date"
+                      formControlName="fecha_nacimiento"
+                      [(ngModel)]="usuario.fecha_nacimiento" [class.border-danger]="FechaNacimientoValid"
+                      id="fecha_nacimiento"
+                      name="fecha_nacimiento"
+                      class="form-control"
+                      placeholder="Fecha de nacimiento"
+                      required
+                      #newFecha
+                    />
+                    <div *ngIf="FechaNacimiento?.errors  && FechaNacimiento?.touched">
+                      <p *ngIf="FechaNacimiento?.hasError('required')" class="text-danger">
+                        La fecha de nacimiento es requerida.
+                      </p>
+                  </div>
+                  </div>
+
+                <div class="form-group">
+                  <label class="color-title">Usuario</label>
+                  <input
+                    type="text"
+                    formControlName="username"
+                    [(ngModel)]="usuario.username" [class.border-danger]="UsernameValid"
+                    id="username"
+                    name="username"
+                    class="form-control"
+                    placeholder="Usuario"
+                    required
+                    #newUsuario
+                  />
+                </div>
+
+                <div class="form-group">
+                    <label class="color-title"> Email </label>
+                    <input
+                      type="email"
+                      formControlName="email"
+                      [(ngModel)]="usuario.email" [class.border-danger]="MailValid"
+                      id="email"
+                      name="mail"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      #newMail
+                    />
+                    <div *ngIf="Mail?.errors  && Mail?.touched">
+                      <p *ngIf="Mail?.hasError('required')" class="text-danger">
+                        El email es requerido.
+                      </p>
+                  </div>
+                  </div>
+
+                <div class="form-group">
+                    <label class="color-title">Contraseña</label>
+                    <input
+                      type="password"
+                      formControlName="contrasena"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="ContrasenaValid"
+                      id="contrasena"
+                      name="contrasena"
+                      class="form-control"
+                      placeholder="Contraseña"
+                      required
+                      #newPass
+                    />
+                    <div *ngIf="Contrasena?.errors  && Contrasena?.touched">
+                      <p *ngIf="Contrasena?.hasError('required')" class="text-danger">
+                        El password es requerido.
+                      </p>
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="color-title"> Telefono </label>
+                    <input
+                      type="text"
+                      formControlName="telefono"
+                      id="telefono"
+                      name="telefono"
+                      class="form-control"
+                      placeholder="Telefono"
+                      required
+                      #newTelefono
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="color-title">Pais</label>
+                    <input
+                      type="text"
+                      formControlName="pais"
+                      id="pais"
+                      name="pais"
+                      class="form-control"
+                      placeholder="Pais"
+                      required
+                      #newPais
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="color-title">Provincia</label>
+                    <input
+                      type="text"
+                      formControlName="provincia"
+                      id="provincia"
+                      name="provincia"
+                      class="form-control"
+                      placeholder="provincia"
+                      required
+                      #newProvincia
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="color-title">Ciudad</label>
+                    <input
+                      type="text"
+                      formControlName="ciudad"
+                      id="ciudad"
+                      name="ciudad"
+                      class="form-control"
+                      placeholder="ciudad"
+                      required
+                      #newCiudad
+                    />
+                  </div>
+
+                  <button type="submit" class="btn btn-lg w-100 btn-registrar btn-block"  [disabled]="!formulario.valid">
+                      Registrarse
+                  </button>
+                  <div class="form-group">
+                      <a routerLink="../login" class="form-control login-user btn-pass">¿Ya tienes una cuenta?</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+

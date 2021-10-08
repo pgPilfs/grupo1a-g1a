@@ -1,0 +1,69 @@
+
+.navbar{
+    background-color:white;
+}
+.navbar{
+    background-color:#4174f4;
+}
+
+.btn-inicio{
+    background-color: #041c8a;
+    border-radius: 4em;
+    padding: 8px 25px;
+    margin: 0 10px 0 10px;
+}
+
+.btn-inicio:hover{
+    background-color: #4174f4;
+    color: white;
+    border-radius: 4em;
+    padding: 8px 25px;
+}
+
+.btn-registro{
+    background-color: white;
+    color: #4174f4;
+    border-color: #4174f4;
+    border-radius: 4em;
+    padding: 8px 25px;
+    margin: 0 10px 0 10px;
+}
+
+.btn-registro:hover{
+    background-color: #041c8a;
+    color: white;
+    border-color: #041c8a;
+    border-radius: 4em;
+    padding: 8px 25px;
+}
+
+.nav-item{
+    margin: 0 15px 0 15px;
+}
+
+.nav-link{
+    color: #fff;
+    font-size: 18px;
+
+}
+
+.nav-link:hover{
+    color: #041c8a;
+    font-size: 18px;
+}
+
+.header_change{
+    position: fixed;
+    box-shadow: 5px -1px 12px -5px grey;
+    width: 100%;
+    transition: 1s;
+    z-index: 1;
+}
+
+
+
+#logo{
+    height: 30%;
+    width: 30%;
+}
+

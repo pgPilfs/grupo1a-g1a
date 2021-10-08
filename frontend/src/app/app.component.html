@@ -1,0 +1,10 @@
+<!-- Contenedor flex para tener un sticky footer -->
+<div class="d-flex flex-column h-100">
+  <!-- Header de la app con navbar -->
+  <app-header></app-header>
+  <!-- Main content y Footer wrapeados en contenedor flex para hacer sticky al footer -->
+  <!-- Main content -->
+  <router-outlet class="flex-shrink-0"></router-outlet>
+  <!-- Footer -->
+  <app-footer class="mt-auto"></app-footer>
+</div>

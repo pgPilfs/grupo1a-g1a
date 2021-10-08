@@ -1,0 +1,36 @@
+.form-group{
+    margin: 5%;
+}
+.form-control.login-user{
+    border: 0px solid #fff !important;
+
+}
+.error{
+    color: red;
+    margin: 10px;
+    
+}
+
+.color-title{
+    color: #4174f4;
+}
+
+.btn-registrar{
+    background-color: #4174f4;
+    border-color: #4174f4;
+    border-radius: 4em;
+}
+.btn-registrar:hover{
+    background-color: #041c8a;
+    border-radius: 4em;
+}
+
+.btn-pass{
+    color: #041c8a;
+    outline-style: none;
+}
+
+.btn-pass:hover{
+    color: #4174f4;
+    outline-style: none;
+}
