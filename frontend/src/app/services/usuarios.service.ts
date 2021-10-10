@@ -28,8 +28,7 @@ export class Usuario
 
 
   id_usuario:number=2;
-  //A modo de ejemplo se deja así pero lo ideal es crear propiedades para acceder a los atributos.
+  
 }
 
 
-//SALDO Y ULTIMOS MOVIMIENTOS
