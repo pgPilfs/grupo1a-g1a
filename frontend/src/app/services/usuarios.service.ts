@@ -31,4 +31,10 @@ export class Usuario
   
 }
 
+export class  LoginRequest {
+  UserName:string="";
+  Password:string="";
+  Token: string = "";
+}
+
 
