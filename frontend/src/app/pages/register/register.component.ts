@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get nombre(){
+/* get nombre(){
     return this.formulario.get('nombre');
   }
 

@@ -13,7 +13,7 @@ import {LoginRequest} from 'src/app/services/usuarios.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  usuario: LoginRequest = new LoginRequest(); 
+  usuario: LoginRequest = new LoginRequest();
   error: string="";
 
   constructor(private formBuilder: FormBuilder,private authService: AuthService,
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.form= this.formBuilder.group(
       {
         password:['',[Validators.required, Validators.minLength(8)]],
-        mail:['', [Validators.required, Validators.email]]   
+        mail:['', [Validators.required, Validators.email]]
       }
     )
 
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
         //localStorage.setItem('auth-token', JSON.stringify(data ));
 
         this.router.navigate(['movimientos']);
-       
+
         },
         error => {
          this.error = error;

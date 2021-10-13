@@ -11,7 +11,7 @@
           <div class="card">
             <div class="card-body text-center">
               <form [formGroup]="formulario" (ngSubmit)="onEnviar($event, usuario)">
-                
+
                 <div class="form-group">
                   <label class="color-title"> Nombre/s </label>
                   <input
@@ -38,11 +38,10 @@
                   <input
                     type="text"
                     formControlName="apellido"
-
+                    [(ngModel)]="usuario.apellido" [class.border-danger]="ContrasenaValid"
                     id="apellido"
                     name="apellido"
                     class="form-control"
-                    [(ngModel)]="usuario.contrasena" [class.border-danger]="ContrasenaValid"
                     placeholder="Apellido"
                     required
                     #newApellido

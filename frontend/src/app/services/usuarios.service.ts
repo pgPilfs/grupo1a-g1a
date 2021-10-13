@@ -28,13 +28,18 @@ export class Usuario
 
 
   id_usuario:number=2;
-  
+
 }
 
 export class  LoginRequest {
+  id_usuario: any = "";
+  user:string = "";
+  nombre:string="";
+  apellido:string="";
+  telefono:string=""
   UserName:string="";
   Password:string="";
-  Token: string = "";
+  Token?: any = "";
 }
 
 
