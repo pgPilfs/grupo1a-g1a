@@ -1,20 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
-using System.Threading;
-using System.Web.Http;
-
 using System.Net.Http;
+using System.Web.Http;
+using System.Threading;
 using MVCWebApi.Models;
 using MVCWebApi.Controllers;
 using System.Web.Http.Cors;
 
-namespace WebApiSegura.Controllers
+namespace MVCWebApi.Controllers
 {
-    /// <summary>
-    /// login controller class for authenticate users
-    /// </summary>
     [AllowAnonymous]
     [RoutePrefix("api/login")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         [HttpGet]
@@ -23,13 +22,15 @@ namespace WebApiSegura.Controllers
         {
             return Ok(true);
         }
+
         [HttpGet]
         [Route("echouser")]
         public IHttpActionResult EchoUser()
         {
             var identity = Thread.CurrentPrincipal.Identity;
-            return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: { identity.IsAuthenticated}");
+            return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
         }
+
         [HttpPost]
         [Route("authenticate")]
         public IHttpActionResult Authenticate(LoginRequest login)
@@ -37,32 +38,27 @@ namespace WebApiSegura.Controllers
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
+
+            GestorUsuario user = new GestorUsuario();
             //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
-             var isUserValid = (login.Usuario == "user" && login.Password == "123456");
+            var isUserValid = user.IniciarSesion(login.UserName, login.Password);
             if (isUserValid)
             {
-                var rolename = "Developer";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
+                var rolename = "User";
+                var token = TokenGenerator.GenerateTokenJwt(login.UserName, rolename);
+                login.Token = token;
+                LoginRequest welcome = user.UsuarioLogeado(login.UserName, login.Password);
+                login.id_usuario = welcome.id_usuario;
+                login.nombre = welcome.nombre;
+                login.apellido = welcome.apellido;
+                login.user = welcome.user;
+                return Ok(login);
             }
-            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
-             var isTesterValid = (login.Usuario == "test" && login.Password == "123456");
-            if (isTesterValid)
-            {
-                var rolename = "Tester";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
-            }
-            //TODO: This code is only for demo - extract method in new class & validate  correctly in your application !!
-             var isAdminValid = (login.Usuario == "admin" && login.Password == "123456");
-            if (isAdminValid)
-            {
-                var rolename = "Administrator";
-                var token = TokenGenerator.GenerateTokenJwt(login.Usuario, rolename);
-                return Ok(token);
-            }
-            // Unauthorized access
+
+            // Unauthorized access 
             return Unauthorized();
         }
+
+
     }
 }

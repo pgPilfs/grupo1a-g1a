@@ -11,7 +11,8 @@ namespace MVCWebApi.Controllers
     /// customer controller class for testing security token
     /// </summary>
     [Authorize]
-    [RoutePrefix("api/customers")]
+    [RoutePrefix("api/customers")]
+
     public class CustomersController : ApiController
     {
         [HttpGet]

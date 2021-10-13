@@ -187,77 +187,69 @@ EXEC crear_movimiento 1, 1, 250000;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 --TIPOS MOVIMIENTOS
 --1: Ingreso dinero
 --2: Egreso dinero
 --3: Transferencia
 
-
+USE [PIL2021_fbravo]
+GO
 --el ingreso de dinero en la cuenta
 Go
 CREATE PROCEDURE ingresar_dinero (@id_c_principal INT, @monto money) AS
 BEGIN
-INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+INSERT INTO [dbo].[Movimientos](id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
 VALUES (@id_c_principal, @id_c_principal, @monto, 6, 1);
 UPDATE Cuentas
 SET monto = monto+@monto
 WHERE id_cuenta = @id_c_principal;
 END
 Go
-EXEC ingresar_dinero 1, 250000, 1;
+EXEC ingresar_dinero 2, 250000;
 
 --retiro de dinero
 Go
-CREATE PROCEDURE retirar_dinero (@id_c_principal INT, @monto money) AS
+CREATE PROCEDURE retirar_dinero (@id_c_principal INT, @monto decimal) AS
 BEGIN
-SELECT CASE WHEN monto-@monto >= 0 THEN
-					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+IF ((SELECT monto FROM Cuentas WHERE id_cuenta = @id_c_principal)-@monto) >= 0 BEGIN
+       INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
 					VALUES (@id_c_principal, @id_c_principal, @monto, 6, 2);
 					UPDATE Cuentas
 					SET monto = monto-@monto
-					WHERE id_cuenta = @id_c_principal;)
-			WHEN monto-@monto < 0 THEN
-					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
-					VALUES (@id_c_principal, @id_c_principal, @monto, 9, 2);)
-			END Retiro
-FROM Cuentas
+					WHERE id_cuenta = @id_c_principal;
+			END
+IF ((SELECT monto FROM Cuentas WHERE id_cuenta = @id_c_principal)-@monto) < 0 BEGIN
+     INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+	 VALUES (@id_c_principal, @id_c_principal, @monto, 9, 2);
+	 END
 END
 Go
-EXEC retirar_dinero 1, 250000, 2;
+
+
+EXEC retirar_dinero 2, 250000;
 
 --transferencias
 Go
-CREATE PROCEDURE transferir_dinero (@id_c_principal INT, @id_c_recibe INT, @monto money) AS
+CREATE PROCEDURE transferir_dinero (@id_c_principal INT, @id_c_recibe INT, @monto decimal) AS
 BEGIN
-SELECT CASE WHEN monto-@monto >= 0 THEN
-					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
-					VALUES (@id_c_principal, @id_c_recibe, @monto, 6, 3);
-					UPDATE Cuentas
-					SET monto = monto-@monto
-					WHERE id_cuenta = @id_c_principal;
-					UPDATE Cuentas
-					SET monto = monto+@monto
-					WHERE id_cuenta = @id_c_recibe;)
-			WHEN monto-@monto < 0 THEN
-					(INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
-					VALUES (@id_c_principal, @id_c_recibe, @monto, 9, 3);)
-			END Retiro
-FROM Cuentas
-WHERE id_cuenta = @id_c_principal
+     IF ((SELECT monto FROM Cuentas WHERE id_cuenta = @id_c_principal)-@monto) >= 0 BEGIN
+        INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+		VALUES (@id_c_principal, @id_c_recibe, @monto, 6, 3);
+		UPDATE Cuentas
+		SET monto = monto-@monto
+		WHERE id_cuenta = @id_c_principal;
+		UPDATE Cuentas
+		SET monto = monto+@monto
+					WHERE id_cuenta = @id_c_recibe;
+					END
+	  IF((SELECT monto FROM Cuentas WHERE id_cuenta = @id_c_principal)-@monto) < 0 BEGIN
+		INSERT INTO Movimientos(id_cuenta_principal, id_cuenta_recibe, monto, id_estado, tipomovimiento)
+		VALUES (@id_c_principal, @id_c_recibe, @monto, 9, 3);
+		END
 END
-Go
+ 
+
+
 EXEC transferir_dinero 1, 2, 250000;
 
 
@@ -270,3 +262,45 @@ SELECT * FROM Provincias WHERE id_pais = @id_pais
 SELECT * FROM Ciudades WHERE id_provincia = @id_provincia
 
 
+GO
+CREATE PROCEDURE LoguearUsuario(@email varchar(255), @password varchar(255)) AS
+BEGIN
+SELECT COUNT(*) FROM [PIL2021_fbravo].[dbo].[Usuarios] 
+WHERE email = @email and contraseña = @password 
+END
+GO
+
+GO
+CREATE PROCEDURE ObtenerMail(@email varchar(255)) AS
+BEGIN
+SELECT email FROM [Usuarios] 
+WHERE email = @email 
+END
+GO
+
+GO
+CREATE PROCEDURE ObtenerPass(@password varchar(255)) AS
+BEGIN
+SELECT contraseña FROM [Usuarios] 
+WHERE contraseña = @password 
+END
+GO
+
+
+GO  
+CREATE PROCEDURE obtenerid (@email varchar(255), @password varchar(255))
+AS   
+    SET NOCOUNT ON;  
+    SELECT id_usuario,[username]
+      ,[nombre]
+      ,[apellido]
+      ,[email]
+      ,[contraseña]
+      ,[telefono]
+      ,[fecha_nacimiento]  
+    FROM Usuarios
+    WHERE email = @email AND contraseña = @password;  
+RETURN  
+GO  
+  
+exec obtenerid 'usuario1@qsy.com', 'contraseñau1'

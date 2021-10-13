@@ -73,6 +73,67 @@ namespace MVCWebApi.Models
         }
 
 
+        public string ObtenerPassword(string pass)
+        {
+            Usuarios usuario = null;
+            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "obtenerPass";
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@password", pass));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    string contrasena = dr.GetString(0);
+                    usuario = new Usuarios();
+
+
+
+                    usuario.contrasena = contrasena;
+                }
+
+                dr.Close();
+            }
+
+            return usuario.contrasena;
+        }
+
+
+        public bool IniciarSesion(string Usuario, string Contraseña)
+        {
+            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            int result = 0;
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "LoguearUsuario";
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@email", Usuario));
+                comm.Parameters.Add(new SqlParameter("@password", Contraseña));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    result = dr.GetInt32(0);
+                }
+
+                dr.Close();
+            }
+
+            return result > 0;
+        }
+
         public void Eliminar(int id)
         {
             string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
@@ -126,7 +187,40 @@ namespace MVCWebApi.Models
             return lista;
         }
 
+        public LoginRequest UsuarioLogeado(string userName, string pass)
+        {
+            LoginRequest usuario = null;
+            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "obtenerid";
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@email", userName));
+                comm.Parameters.Add(new SqlParameter("@password", pass));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    int id_usuario = dr.GetInt32(0);
+                    string username = dr.GetString(1).Trim();
+                    string nombre = dr.GetString(2).Trim();
+                    string apellido = dr.GetString(3).Trim();
+                    string telefono = dr.GetString(6);
+                    
+
+                    usuario = new LoginRequest(id_usuario, username, nombre, apellido, telefono);
+                }
+
+                dr.Close();
+            }
+
+            return usuario;
+        }
 
     }
 }
