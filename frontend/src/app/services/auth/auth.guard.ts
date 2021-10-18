@@ -7,16 +7,16 @@ import { catchError, map, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthsGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
+
   constructor(
     private authService: AuthService, private router: Router
   ) { }
 
-
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
-    console.log("GUARDS WORKING");
+    state: RouterStateSnapshot): Observable<boolean>{
+      console.log("GUARDS WORKING");
       return this.authService.estaAutenticado.pipe(
        map(e => {
          console.log(e);
@@ -25,15 +25,16 @@ export class AuthsGuard implements CanActivate {
          }
          else
          {
-           this.router.navigate(['/iniciar-sesion']);
+           this.router.navigate(['/login']);
            return false;
          }
        }),
        catchError((err) => {
-         this.router.navigate(['/iniciar-sesion']);
+         this.router.navigate(['/login']);
          return of(false);
        })
      );
+
   }
 
 }

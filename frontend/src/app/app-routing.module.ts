@@ -10,6 +10,7 @@ import { RegisterComponent} from './pages/register/register.component';
 import { IngresodineroComponent } from './pages/ingresodinero/ingresodinero.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import {AuthGuard} from 'src/app/services/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,12 +19,11 @@ const routes: Routes = [
   { path: 'forget-pass', component: ForgetPassComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ingdinero', component: IngresodineroComponent },
-
+  { path: 'userloged', component: UserlogedComponent },
   { path: 'logout', component: LogoutComponent },
-
-  { path: 'movimiento', component: MovimientosComponent },
+  { path: 'movimiento', component: MovimientosComponent, canActivate:  [AuthGuard ] },
   { path: 'usuario', component: UserlogedComponent },
-  { path: 'saldo', component: SaldoDisponibleComponent },
+  { path: 'saldo', component: SaldoDisponibleComponent, canActivate:  [AuthGuard ] },
 
 
   { path: '**', component: NotFoundComponent },

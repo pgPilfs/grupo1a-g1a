@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,  FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import {AuthService} from 'src/app/services/auth.service';
+import {AuthService} from 'src/app/services/auth/auth.service'
 import {LoginRequest} from 'src/app/services/usuarios.service';
 
 
@@ -11,8 +11,7 @@ import {LoginRequest} from 'src/app/services/usuarios.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  form: FormGroup;
+ form: FormGroup;
   usuario: LoginRequest = new LoginRequest();
   error: string="";
 
@@ -25,10 +24,11 @@ export class LoginComponent implements OnInit {
       }
     )
 
-   }
+  }
 
   ngOnInit(): void {
   }
+
 
   get mailField()
   {
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
         console.log("DATA"+ JSON.stringify( data));
         //localStorage.setItem('auth-token', JSON.stringify(data ));
 
-        this.router.navigate(['movimientos']);
+        this.router.navigate(['userloged']);
 
         },
         error => {

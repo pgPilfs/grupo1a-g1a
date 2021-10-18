@@ -27,16 +27,16 @@ export class Usuario
   fecha_nacimiento:string="";
 
 
-  id_usuario:number=2;
+  id_usuario:number=0;
 
 }
 
 export class  LoginRequest {
-  id_usuario: any = "";
-  user:string = "";
-  nombre:string="";
-  apellido:string="";
-  telefono:string=""
+  //id_usuario: any = "";
+  //user:string = "";
+  //nombre:string="";
+  //apellido:string="";
+  //telefono:string=""
   UserName:string="";
   Password:string="";
   Token?: any = "";

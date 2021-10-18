@@ -1,15 +1,13 @@
-import { UsuarioService } from './usuarios.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LoginRequest } from './usuarios.service';
+import { LoginRequest } from '../usuarios.service';
 import {HttpClient} from '@angular/common/http';
 const TOKEN_KEY = 'auth-token';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
   url="https://localhost:44303/api/login/authenticate";
   currentUserSubject: BehaviorSubject<LoginRequest>;
@@ -20,8 +18,6 @@ export class AuthService {
     console.log("AUTH SERVICE WORKING");
     this.currentUserSubject = new  BehaviorSubject<LoginRequest>(JSON.parse(localStorage.getItem(TOKEN_KEY) || '{}'));
     this.currentUser = this.currentUserSubject.asObservable();
-
-
   }
 
   login(usuario: LoginRequest): Observable<any> {
@@ -47,4 +43,5 @@ export class AuthService {
     localStorage.removeItem(TOKEN_KEY);
     this.loggedIn.next(false);
   }
+
 }

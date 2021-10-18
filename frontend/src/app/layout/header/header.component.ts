@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,20 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  estaAutenticado:boolean=false;
 
-  constructor() { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit(): void {
+    this.authService.estaAutenticado.subscribe(res=>( this.estaAutenticado=res));
   }
+
+  onCerrarSesion(){
+    this.authService.logOut();
+    this.estaAutenticado=false;
+    this.router.navigate(['/login']);
+  }
+
 
   header_variable = false;
   @HostListener("document:scroll")

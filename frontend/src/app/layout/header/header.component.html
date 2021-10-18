@@ -30,13 +30,13 @@
         </ul>
 
         <div class="text-end">
-          <a routerLink="/login" class="btn-inicio btn btn-outline-light me-2">
+          <a routerLink="/login" *ngIf="!estaAutenticado" routerLinkActive="active" class="btn-inicio btn btn-outline-light me-2">
             INICIA SESIÓN
           </a>
 
-          <a routerLink="/register" class="btn-registro btn btn-outline-light">REGÍSTRATE GRATIS</a>
+          <a routerLink="/register" *ngIf="!estaAutenticado" routerLinkActive="active" class="btn-registro btn btn-outline-light">REGÍSTRATE GRATIS</a>
 
-          <a routerLink="/logout" class="btn btn-danger me-2">Cerrar Sesión</a>
+          <a routerLink="/logout" *ngIf="estaAutenticado" (click)="onCerrarSesion()" class="btn btn-danger me-2">Cerrar Sesión</a>
 
 
         </div>
