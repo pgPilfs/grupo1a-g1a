@@ -35,6 +35,26 @@ namespace MVCWebApi.Models
 
         }
 
+        public int crearCuenta(int id)
+        {
+            string connection = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
+                conn.Open();
+
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "crear_cuenta";
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@id_usuario", id));
+                comm.Parameters.Add(new SqlParameter("@cvu", new Random().Next(100000000, 999999999)));
+                
+
+                return Convert.ToInt32(comm.ExecuteScalar());
+            }
+
+        }
+
 
         public Usuarios ObtenerUsuario(int id)
         {
@@ -133,6 +153,8 @@ namespace MVCWebApi.Models
 
             return result > 0;
         }
+
+        
 
         public void Eliminar(int id)
         {

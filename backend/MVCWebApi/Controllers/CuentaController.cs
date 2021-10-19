@@ -9,6 +9,7 @@ using System.Web.Http.Cors;
 
 namespace MVCWebApi.Controllers
 {
+    [Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CuentaController : ApiController
     {
@@ -26,10 +27,13 @@ namespace MVCWebApi.Controllers
             return cuenta.ObtenterCuenta(id);
         }
 
-        // POST: api/Cuenta
-        public void Post([FromBody]string value)
+        public Movimiento Post([FromBody] Movimiento value)
         {
+            GestorCuenta transaccion = new GestorCuenta();
+            value.id_movimiento = transaccion.transferencia(value);
+            return value;
         }
+
 
         // PUT: api/Cuenta/5
         public void Put(int id, [FromBody]string value)
