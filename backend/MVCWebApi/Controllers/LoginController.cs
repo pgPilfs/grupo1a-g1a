@@ -13,7 +13,7 @@ namespace MVCWebApi.Controllers
 {
     [AllowAnonymous]
     [RoutePrefix("api/login")]
-    [EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         [HttpGet]

@@ -37,17 +37,17 @@ namespace MVCWebApi.Models
     {
         public int id_movimiento;
         public decimal monto; 
-        
         public string cvuOrigen;
         public string cvuDestino;
+        public string tipoMovimiento;
 
 
-        public Movimiento(decimal Monto, string CvuDestino, string CvuOrigen)
+        public Movimiento(decimal Monto, string CvuDestino, string CvuOrigen, string tipo)
         {
             monto = Monto;
             cvuDestino = CvuDestino;
             cvuOrigen = CvuOrigen;
-
+            tipoMovimiento = tipo;
         }
 
 

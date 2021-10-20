@@ -16,8 +16,14 @@ namespace MVCWebApi.Controllers
         public Movimiento Post([FromBody] Movimiento value)
         {
             GestorCuenta retiro = new GestorCuenta();
-            value.id_movimiento = retiro.retiroDinero(value);
+            retiro.retiroDinero(value);
             return value;
+        }
+
+        public Cuenta Get(string id)
+        {
+            GestorCuenta gCuenta = new GestorCuenta();
+            return gCuenta.ObtenterCuentaCvu(id);
         }
     }
 }

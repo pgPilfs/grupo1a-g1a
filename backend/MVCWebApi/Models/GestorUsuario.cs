@@ -56,9 +56,10 @@ namespace MVCWebApi.Models
         }
 
 
-        public Usuarios ObtenerUsuario(int id)
+        public int ObtenerUsuario(string email)
         {
-            Usuarios usuario = null;
+            // Usuarios usuario = new Usuarios();
+            int id_user = 0;
             string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
@@ -68,28 +69,28 @@ namespace MVCWebApi.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "obtener_usuario";
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@id_usuario", id));
+                comm.Parameters.Add(new SqlParameter("@email", email));
 
                 SqlDataReader dr = comm.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    string username = dr.GetString(1).Trim();
-                    string nombre = dr.GetString(2).Trim();
-                    string apellido = dr.GetString(3).Trim();
-                    string email = dr.GetString(4);
-                    string contrasena = dr.GetString(5);
-                    int ciudad = dr.GetInt32(6);
+                     id_user = dr.GetInt32(0);
+                   // string username = dr.GetString(1).Trim();
+                   // string nombre = dr.GetString(2).Trim();
+                   // string apellido = dr.GetString(3).Trim();
+                   // string contrasena = dr.GetString(5);
+                   // int ciudad = dr.GetInt32(7);
                     // int dni = dr.GetInt32(5);
-                    DateTime fecha_nacimiento = dr.GetDateTime(7);
+                  //  DateTime fecha_nacimiento = dr.GetDateTime(11);
                     
-                    usuario = new Usuarios(id, username, nombre, apellido, email, contrasena, fecha_nacimiento, ciudad);
+                  //  usuario = new Usuarios(id_user, username, nombre, apellido, email, contrasena, fecha_nacimiento, ciudad);
                 }
                 
                 dr.Close();
                 }
 
-                return usuario;
+                return id_user;
         }
 
 

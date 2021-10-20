@@ -21,14 +21,15 @@ namespace MVCWebApi.Controllers
            }
 
              // GET: api/Usuarios/5
-           public Usuarios Get(int id)
+           public int Get(string mail)
            {
                GestorUsuario gestorUsuarios = new GestorUsuario();
-               return gestorUsuarios.ObtenerUsuario(id);
+               return gestorUsuarios.ObtenerUsuario(mail);
            }
 
-           // POST: api/Usuarios
-           public Usuarios Post([FromBody]Usuarios value)
+        // POST: api/Usuarios
+        [AllowAnonymous]
+        public Usuarios Post([FromBody]Usuarios value)
            {
                GestorUsuario gUsuario = new GestorUsuario();
                value.id_usuario= gUsuario.AgregarUsuario(value);

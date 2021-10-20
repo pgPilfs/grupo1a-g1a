@@ -30,7 +30,7 @@ namespace MVCWebApi.Controllers
         public Movimiento Post([FromBody] Movimiento value)
         {
             GestorCuenta transaccion = new GestorCuenta();
-            value.id_movimiento = transaccion.transferencia(value);
+            transaccion.transferencia(value);
             return value;
         }
 
