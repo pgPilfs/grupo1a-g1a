@@ -86,6 +86,11 @@
                     required
                     #newUsuario
                   />
+                  <div *ngIf="Username?.errors  && Username?.touched">
+                    <p *ngIf="Username?.hasError('required')" class="text-danger">
+                      El usuario es requerido.
+                    </p>
+                </div>
                 </div>
 
                 <div class="form-group">
@@ -123,16 +128,22 @@
                     />
                     <div *ngIf="Contrasena?.errors  && Contrasena?.touched">
                       <p *ngIf="Contrasena?.hasError('required')" class="text-danger">
-                        El password es requerido.
+                        La contraseña es requerida.
                       </p>
                   </div>
+                  <div *ngIf="Contrasena?.errors  && Contrasena?.touched">
+                    <p *ngIf="Contrasena?.errors?.minlength" class="text-danger">
+                      La contraseña debe contener al menos 8 caracteres.
+                    </p>
+                </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="color-title"> Telefono </label>
+                    <label class="color-title"> Teléfono </label>
                     <input
                       type="text"
                       formControlName="telefono"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="TelefonoValid"
                       id="telefono"
                       name="telefono"
                       class="form-control"
@@ -140,13 +151,19 @@
                       required
                       #newTelefono
                     />
+                    <div *ngIf="Telefono?.errors  && Telefono?.touched">
+                      <p *ngIf="Telefono?.hasError('required')" class="text-danger">
+                        El teléfono es requerido.
+                      </p>
+                  </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="color-title">Pais</label>
+                    <label class="color-title">País</label>
                     <input
                       type="text"
                       formControlName="pais"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="PaisValid"
                       id="pais"
                       name="pais"
                       class="form-control"
@@ -154,6 +171,11 @@
                       required
                       #newPais
                     />
+                    <div *ngIf="Pais?.errors  && Pais?.touched">
+                      <p *ngIf="Pais?.hasError('required')" class="text-danger">
+                        El país es requerido.
+                      </p>
+                  </div>
                   </div>
 
                   <div class="form-group">
@@ -161,6 +183,7 @@
                     <input
                       type="text"
                       formControlName="provincia"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="ProvinciaValid"
                       id="provincia"
                       name="provincia"
                       class="form-control"
@@ -168,6 +191,11 @@
                       required
                       #newProvincia
                     />
+                    <div *ngIf="Provincia?.errors  && Provincia?.touched">
+                      <p *ngIf="Provincia?.hasError('required')" class="text-danger">
+                        La provincia es requerida.
+                      </p>
+                  </div>
                   </div>
 
                   <div class="form-group">
@@ -175,6 +203,7 @@
                     <input
                       type="text"
                       formControlName="ciudad"
+                      [(ngModel)]="usuario.contrasena" [class.border-danger]="CiudadValid"
                       id="ciudad"
                       name="ciudad"
                       class="form-control"
@@ -182,6 +211,11 @@
                       required
                       #newCiudad
                     />
+                    <div *ngIf="Ciudad?.errors  && Ciudad?.touched">
+                      <p *ngIf="Ciudad?.hasError('required')" class="text-danger">
+                        La ciudad es requerida.
+                      </p>
+                  </div>
                   </div>
 
                   <button type="submit" class="btn btn-lg w-100 btn-registrar btn-block"  [disabled]="!formulario.valid">

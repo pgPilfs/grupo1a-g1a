@@ -12,6 +12,7 @@ import { LayoutModule } from "./layout/layout.module";
 import { PagesModule } from './pages/pages.module';
 
 import { ErrorInterceptor } from './services/auth/error.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ErrorInterceptor } from './services/auth/error.service';
     BrowserModule,
     LayoutModule,
     PagesModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, CuentaService, UsuarioService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

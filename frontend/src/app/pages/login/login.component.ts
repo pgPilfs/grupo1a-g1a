@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,  FormGroup, FormBuilder} from '@angular/forms';
+import { Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import {AuthService} from 'src/app/services/auth/auth.service'
 import {LoginRequest} from 'src/app/services/usuarios.service';
@@ -12,6 +12,7 @@ import {LoginRequest} from 'src/app/services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
  form: FormGroup;
+ contactForm: FormGroup;
   usuario: LoginRequest = new LoginRequest();
   error: string="";
 
@@ -23,32 +24,48 @@ export class LoginComponent implements OnInit {
         mail:['', [Validators.required, Validators.email]]
       }
     )
+    this.contactForm = this.createFormGroup();
 
+  }
+
+  createFormGroup(){
+    return new FormGroup({
+      password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+        mail: new FormControl('', [Validators.required, Validators.email])
+    })
   }
 
   ngOnInit(): void {
   }
 
 
-  get mailField()
+  get mail()
   {
     return this.form.get("mail");
   }
 
-  get passField()
+  get pass()
   {
     return this.form.get("password");
   }
 
   get passInvalid()
   {
-    return this.passField?.touched && !this.passField.valid;
+    return this.pass?.touched && !this.pass.valid;
   }
 
   get mailInvalid()
   {
-    return this.mailField?.touched && !this.mailField.valid;
+    return this.mail?.touched || this.mail?.dirty
   }
+
+  get mailNoValido()
+  {
+    return this.mail?.invalid;
+  }
+
+  
+
 
   onEnviar(event: Event, usuario: LoginRequest)
   {
