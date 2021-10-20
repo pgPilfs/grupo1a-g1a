@@ -1,1 +1,11 @@
-<p>retiros works!</p>
+<div class=" monto text-center">
+  <h6>¿Cuanto queres retirar?</h6>
+  <form class="form-group" [formGroup]="form" (ngSubmit)="onEnviar($event, retiro)">
+    <label >Monto:</label>
+    <input type="text" class="form-control" formControlName="monto" placeholder="Ingrese el monto a transferir" id="monto" [(ngModel)]="retiro.monto">
+    <button type="submit" class="btn btn-lg btn-primary btn-block boton">
+      Confirmar
+    </button>
+  </form><br>
+
+</div>

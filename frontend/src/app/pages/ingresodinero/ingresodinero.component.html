@@ -6,7 +6,7 @@
           <div class="col-xs-12 col-sm-12 com-md-12 mx-auto text-center pt-5">
             <h2 class="h3 mb-3 font-weight-normal">Ingresá dinero</h2>
           </div>
-          
+
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-3">
@@ -43,9 +43,13 @@
 
   <div *ngIf="mostrar" class=" monto text-center">
     <h6>¿Cuanto queres ingresar?</h6>
-    <input [formControl]="monto" type="number" class="" placeholder="$0,00" /><br>
-    <button type="submit" class="btn btn-lg btn-primary btn-block boton" [disabled]="!monto.valid">
-      Confirmar
-    </button>
+    <form class="form-group" [formGroup]="form" (ngSubmit)="onEnviar($event, ingreso)">
+      <label >Monto:</label>
+      <input type="text" class="form-control" formControlName="monto" placeholder="Ingrese el monto a transferir" id="monto" [(ngModel)]="ingreso.monto">
+      <button type="submit" class="btn btn-lg btn-primary btn-block boton" >
+        Confirmar
+      </button>
+    </form><br>
+
   </div>
 </section>

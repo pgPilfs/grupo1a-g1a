@@ -31,6 +31,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" routerLink="/movimiento" routerLinkActive="active" *ngIf="estaAutenticado">Movimientos</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" routerLink="/transferir" routerLinkActive="active" *ngIf="estaAutenticado">Transferir</a>
           </li>
 

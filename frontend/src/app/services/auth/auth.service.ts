@@ -44,6 +44,7 @@ export class AuthService {
     window.sessionStorage.clear();
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(emails);
+    localStorage.clear();
     this.loggedIn.next(false);
   }
 

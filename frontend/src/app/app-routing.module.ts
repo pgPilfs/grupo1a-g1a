@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forget-pass', component: ForgetPassComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'ingdinero', component: IngresodineroComponent },
+  { path: 'ingdinero', component: IngresodineroComponent, canActivate: [AuthGuard] },
   { path: 'userloged', component: UserlogedComponent, canActivate:  [AuthGuard]},
   { path: 'logout', component: LogoutComponent },
   { path: 'movimiento', component: MovimientosComponent, canActivate:  [AuthGuard ] },
