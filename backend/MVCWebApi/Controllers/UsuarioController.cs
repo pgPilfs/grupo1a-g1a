@@ -9,7 +9,8 @@ using MVCWebApi.Models;
 
 namespace MVCWebApi.Controllers
 {
-      [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
      public class UsuarioController : ApiController
       {
         // GET: api/Usuarios
@@ -26,13 +27,16 @@ namespace MVCWebApi.Controllers
                return gestorUsuarios.ObtenerUsuario(id);
            }
 
-           // POST: api/Persona
+           // POST: api/Usuarios
            public Usuarios Post([FromBody]Usuarios value)
            {
                GestorUsuario gUsuario = new GestorUsuario();
                value.id_usuario= gUsuario.AgregarUsuario(value);
+               gUsuario.crearCuenta(value.id_usuario);
                return value;
            }
+
+
 
            // PUT: api/Persona/5
            public void Put(int id, [FromBody]Usuarios value)

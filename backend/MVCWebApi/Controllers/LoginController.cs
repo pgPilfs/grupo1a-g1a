@@ -13,7 +13,7 @@ namespace MVCWebApi.Controllers
 {
     [AllowAnonymous]
     [RoutePrefix("api/login")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         [HttpGet]
@@ -30,7 +30,8 @@ namespace MVCWebApi.Controllers
             var identity = Thread.CurrentPrincipal.Identity;
             return Ok($" IPrincipal-user: {identity.Name} - IsAuthenticated: {identity.IsAuthenticated}");
         }
-
+        [AllowAnonymous]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPost]
         [Route("authenticate")]
         public IHttpActionResult Authenticate(LoginRequest login)
