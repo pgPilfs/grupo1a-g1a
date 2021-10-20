@@ -10,13 +10,13 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IngresodineroComponent } from './ingresodinero/ingresodinero.component';
-
 import { LayoutModule } from '../layout/layout.module';
 import { LogoutComponent } from './logout/logout.component';
-
 import { MovimientosComponent } from './movimientos/movimientos.component';
 import { UserlogedComponent } from './userloged/userloged.component';
 import { TransferenciaComponent } from './transferencia/transferencia.component';
+import { RetirosComponent } from './retiros/retiros.component';
+import { ExitoComponent } from './exito/exito.component';
 
 
 @NgModule({
@@ -32,6 +32,8 @@ import { TransferenciaComponent } from './transferencia/transferencia.component'
     SaldoDisponibleComponent,
     UserlogedComponent,
     TransferenciaComponent,
+    RetirosComponent,
+    ExitoComponent,
 
   ],
   imports: [

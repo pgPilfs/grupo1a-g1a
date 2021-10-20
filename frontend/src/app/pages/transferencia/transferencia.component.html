@@ -1,1 +1,19 @@
-<p>transferencia works!</p>
+<div class="container p-3">
+  <form [formGroup]="form" (ngSubmit)="onEnviar($event, transferencia)" novalidate>
+      <div class="form-group">
+        <label >Monto:</label>
+        <input type="text" class="form-control" formControlName="monto" placeholder="Ingrese el monto a transferir" id="monto" [(ngModel)]="transferencia.monto">
+        <!--<<div class="alert alert-danger" *ngIf="mailInvalid">-->
+      </div>
+
+      <div class="form-group">
+        <label>Ingresa el CVU de destino:</label>
+        <input type="text" class="form-control" formControlName="cvuDestino" placeholder="CVU" id="pwd" [(ngModel)]="transferencia.cvuDestino">
+
+
+      </div>
+
+
+      <button type="submit" class="btn btn-primary">Transferir</button>
+  </form>
+</div>

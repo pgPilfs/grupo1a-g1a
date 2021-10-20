@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   createFormGroup(){
     return new FormGroup({
       password: new FormControl('',[Validators.required, Validators.minLength(8)]),
-        mail: new FormControl('', [Validators.required, Validators.email])
+        mail: new FormControl('', [Validators.required])
     })
   }
 
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     return this.mail?.invalid;
   }
 
-  
+
 
 
   onEnviar(event: Event, usuario: LoginRequest)

@@ -1,6 +1,6 @@
 <h1>Ultimos Movimientos</h1>
 <h2>{{hoy|date: "d/M/yy"}}</h2>
-<table *ngIf="mostrar_movimientos">
+<table *ngIf="mostrar_movimientos && estaAutenticado">
     <thead>
         <th>Operación</th>
         <th>Monto</th>

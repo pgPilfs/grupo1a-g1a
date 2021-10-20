@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { LoginRequest } from '../usuarios.service';
 import {HttpClient} from '@angular/common/http';
 const TOKEN_KEY = 'auth-token';
+const emails = 'emails';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class AuthService {
   login(usuario: LoginRequest): Observable<any> {
     return this.http.post<LoginRequest>(this.url, usuario).pipe(map(data => {
       localStorage.setItem(TOKEN_KEY, data.Token);
-
+      localStorage.setItem(emails, data.UserName)
       this.currentUserSubject.next(data);
       this.loggedIn.next(true);
       return data;
@@ -34,6 +35,7 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
+
   get estaAutenticado(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
@@ -41,6 +43,7 @@ export class AuthService {
    logOut(): void {
     window.sessionStorage.clear();
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(emails);
     this.loggedIn.next(false);
   }
 

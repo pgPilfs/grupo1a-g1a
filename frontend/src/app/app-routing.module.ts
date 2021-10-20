@@ -1,3 +1,6 @@
+import { ExitoComponent } from './pages/exito/exito.component';
+import { RetirosComponent } from './pages/retiros/retiros.component';
+import { TransferenciaComponent } from './pages/transferencia/transferencia.component';
 import { UserlogedComponent } from './pages/userloged/userloged.component';
 import { SaldoDisponibleComponent } from './pages/saldo-disponible/saldo-disponible.component';
 import { MovimientosComponent } from './pages/movimientos/movimientos.component';
@@ -19,13 +22,14 @@ const routes: Routes = [
   { path: 'forget-pass', component: ForgetPassComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ingdinero', component: IngresodineroComponent },
-  { path: 'userloged', component: UserlogedComponent },
+  { path: 'userloged', component: UserlogedComponent, canActivate:  [AuthGuard]},
   { path: 'logout', component: LogoutComponent },
   { path: 'movimiento', component: MovimientosComponent, canActivate:  [AuthGuard ] },
   { path: 'usuario', component: UserlogedComponent },
-  { path: 'saldo', component: SaldoDisponibleComponent, canActivate:  [AuthGuard ] },
-
-
+  { path: 'saldo', component: SaldoDisponibleComponent, canActivate:  [AuthGuard] },
+  { path: 'transferir', component: TransferenciaComponent, canActivate: [AuthGuard]},
+  { path: 'retirar', component: RetirosComponent, canActivate: [AuthGuard]},
+  { path: 'exito', component: ExitoComponent, canActivate: [AuthGuard]},
   { path: '**', component: NotFoundComponent },
 ];
 

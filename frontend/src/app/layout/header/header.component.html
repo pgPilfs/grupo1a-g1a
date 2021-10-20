@@ -17,14 +17,29 @@
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="">Inicio</a>
+            <a class="nav-link" *ngIf="!estaAutenticado" href="">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">¿Quiénes somos?</a>
+            <a class="nav-link" routerLink="/userloged" routerLinkActive="active" *ngIf="estaAutenticado">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!estaAutenticado">¿Quiénes somos?</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="">Contacto</a>
+            <a class="nav-link" *ngIf="!estaAutenticado">Contacto</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/transferir" routerLinkActive="active" *ngIf="estaAutenticado">Transferir</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ingdinero" routerLinkActive="active" *ngIf="estaAutenticado">Ingresar $</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/retirar" routerLinkActive="active" *ngIf="estaAutenticado">Retirar</a>
           </li>
 
         </ul>
@@ -36,7 +51,7 @@
 
           <a routerLink="/register" *ngIf="!estaAutenticado" routerLinkActive="active" class="btn-registro btn btn-outline-light">REGÍSTRATE GRATIS</a>
 
-          <a routerLink="/logout" *ngIf="estaAutenticado" (click)="onCerrarSesion()" class="btn btn-danger me-2">Cerrar Sesión</a>
+          <a routerLink="/logout" routerLinkActive="active" *ngIf="estaAutenticado" (click)="onCerrarSesion()" class="btn btn-danger me-2">Cerrar Sesión</a>
 
 
         </div>

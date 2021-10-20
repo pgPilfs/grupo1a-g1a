@@ -14,6 +14,11 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.url, usuario);
   }
 
+  ObtenerUsuario(mail:string |null )
+  {
+    return this.http.get<any>(this.url+"?mail="+mail);
+  }
+
 }
 
 export class Usuario

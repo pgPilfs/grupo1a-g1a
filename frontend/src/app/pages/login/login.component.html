@@ -2,25 +2,25 @@
   <form [formGroup]="form" (ngSubmit)="onEnviar($event, usuario)" novalidate>
       <div class="form-group">
         <label for="email">Email address:</label>
-        <input type="email" class="form-control" formControlName="mail" placeholder="Enter email" id="email" [class.border-danger]="mailInvalid" [(ngModel)]="usuario.UserName">
-        <div class="alert alert-danger" *ngIf="mailInvalid">
-          <div class="container-error-message" *ngIf="mail?.errors?.required"> 
-            El email es requerido              
+        <input type="email" class="form-control" formControlName="mail" placeholder="Enter email" id="email" [(ngModel)]="usuario.UserName">
+        <!--<<div class="alert alert-danger" *ngIf="mailInvalid">
+          div class="container-error-message" *ngIf="mail?.errors?.required">
+            El email es requerido
           </div>
-          <div class="container-error-message" *ngIf="mail?.hasError('email')"> 
-            Formato de email incorrecto              
+          <div class="container-error-message" *ngIf="mail?.hasError('email')">
+            Formato de email incorrecto
           </div>
-        </div>
+        </div>-->
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" formControlName="password"  placeholder="Enter password" id="pwd" [class.border-danger]="passInvalid" [(ngModel)]="usuario.Password">
         <div class="alert alert-danger" *ngIf="passInvalid">
-          <div class="container-error-message" *ngIf="pass?.errors?.required"> 
-            La contraseña es requerida              
+          <div class="container-error-message" *ngIf="pass?.errors?.required">
+            La contraseña es requerida
           </div>
-          <div class="container-error-message" *ngIf="pass?.errors?.minlength"> 
-            La contraseña debe contener al menos 8 caracteres              
+          <div class="container-error-message" *ngIf="pass?.errors?.minlength">
+            La contraseña debe contener al menos 8 caracteres
           </div>
         </div>
       </div>
